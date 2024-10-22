@@ -4,20 +4,19 @@ This is trainig repository to get familiar with `go + HTMX` for web development.
 
 Styling is done via [TaiwindCSS](https://tailwindui.com/) and [daisyUI](https://daisyui.com/)
 
-## How to setup TailwindCSS with repository
+# Setup
 
-Choose one of the 2 approaches
+Make sure you have Node installed. See instalation guide [here](https://nodejs.org/en/download/package-manager)
 
-### A - Standalone CLI tailwind without npm dependencies (just tailwind UI library)
+Make suer you have Golang installed. See instalation guide [here](https://go.dev/doc/install)
 
-Approach made by [this](https://tailwindcss.com/blog/standalone-cli) process to enable TailwindCSS
+Run
 
-### B - NodeJS (3rd party libraries enabled)
+```bash
+npm install
+```
 
-1. [install tailwind](https://tailwindcss.com/docs/installation)
-2. [install daisyUI](https://daisyui.com/docs/install/)
-
-## Run application
+# Run application
 
 Run
 
@@ -25,4 +24,17 @@ Run
 air
 ```
 
-After building, application is available on `localhost:7070`
+After building, application should be available on `localhost:7070`
+
+# Bonus: How to setup TailwindCSS with repository
+
+### NodeJS (with daisyUI)
+
+1. [install tailwind](https://tailwindcss.com/docs/installation)
+2. [install daisyUI](https://daisyui.com/docs/install/)
+
+### Alternative: Standalone CLI tailwind without npm dependencies (just tailwind UI library)
+
+Approach made by [this](https://tailwindcss.com/blog/standalone-cli) process to enable TailwindCSS.
+
+This only enables tailwindCSS without out of 3rd party libraries such as daisyUI
