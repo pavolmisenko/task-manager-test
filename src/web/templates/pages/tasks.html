@@ -1,0 +1,30 @@
+{{define "tasks"}}
+<!DOCTYPE html>
+<html lang="en" data-theme="{{if .DarkMode}}dark{{else}}garden{{end}}">
+  <head>
+    {{template "metadata"}}
+  </head>
+  <body class="pt-20">
+    {{template "navbar" .}}
+    <main>
+      <div id="tasks-site-container" class="flex flex-wrap">
+        <div class="w-full md:w-1/2 p-2">
+          <div id="tasks-form-container" class="w-full">
+            {{template "tasksForm" .}}
+          </div>
+          <div id="task-detail" class="w-full"></div>
+        </div>
+        <div
+          id="tasks-list"
+          hx-get="/content/tasks-list"
+          hx-trigger="load"
+          hx-target="#tasks-list"
+          class="w-full p-2 md:w-1/2"
+        >
+          ...Loading tasks...
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+{{end}}

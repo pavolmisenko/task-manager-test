@@ -1,0 +1,77 @@
+{{define "tasksForm"}}
+<form
+  id="tasks-form"
+  hx-post="/content/tasks-form"
+  hx-target="#tasks-list"
+  hx-on::after-request="if(event.detail.successful) this.reset()"
+>
+  <div class="flex flex-wrap justify-between items-center mb-1 mt-1">
+    <label>Title</label>
+    <input
+      type="text"
+      name="title"
+      required
+      placeholder="Type here"
+      class="input input-bordered w-full max-w-xs"
+    />
+  </div>
+  <div class="flex flex-wrap justify-between items-center mb-1 mt-1">
+    <label>Description</label>
+    <textarea
+      name="description"
+      required
+      rows="1"
+      placeholder="Type here"
+      class="textarea textarea-bordered w-full max-w-xs"
+    ></textarea>
+  </div>
+  <div class="flex flex-wrap justify-between items-center mb-1 mt-1">
+    <label>Category</label>
+    <select
+      name="category-id"
+      class="select select-bordered w-full max-w-xs"
+      required
+    >
+      <option disabled selected value="">Select a category</option>
+      {{range .Categories}}
+      <option value="{{.Id}}">{{.Name}}</option>
+      {{end}}
+    </select>
+  </div>
+  <div class="flex flex-wrap justify-between items-center mb-1 mt-1">
+    <label>User</label>
+    <select
+      name="user-id"
+      class="select select-bordered w-full max-w-xs"
+      required
+    >
+      <option disabled selected value="">Select a user</option>
+      {{range .Users}}
+      <option value="{{.Id}}">{{.Name}} ({{.Email}})</option>
+      {{end}}
+    </select>
+  </div>
+  <div class="flex flex-wrap justify-between items-center mb-1 mt-1">
+    <label>Status</label>
+    <select
+      name="status-id"
+      class="select select-bordered w-full max-w-xs"
+      required
+    >
+      <option disabled selected value="">Select a status</option>
+      {{range .Statuses}}
+      <option value="{{.Id}}">{{.Name}}</option>
+      {{end}}
+    </select>
+  </div>
+  <div class="flex flex-wrap justify-center items-center">
+    <button
+      type="submit"
+      value="Submit"
+      class="btn btn-outline w-full max-w-xs"
+    >
+      Add Task
+    </button>
+  </div>
+</form>
+{{end}}

@@ -1,0 +1,25 @@
+{{ define "usersList" }}
+<div id="users-list" class="space-y-4">
+  {{range .}}
+  <ul>
+    <li key="{{.Id}}">
+      <div class="card bg-base-100 w-full shadow-xl hover:bg-base-200">
+        <div class="card-body items-center text-center">
+          <p class="truncate max-h-52 w-full">{{.Name}}</p>
+          <p class="truncate max-h-52 w-full">{{.Email}}</p>
+          <div class="card-actions">
+            <button
+              class="btn btn-outline btn-error"
+              hx-delete="/content/users/{{.Id}}"
+              hx-target="#users-list"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  {{end}}
+</div>
+{{end}}

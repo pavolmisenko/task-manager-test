@@ -1,0 +1,62 @@
+{{define "users"}}
+<!DOCTYPE html>
+<html lang="en" data-theme="{{if .DarkMode}}dark{{else}}garden{{end}}">
+  <head>
+    {{template "metadata"}}
+  </head>
+  <body class="pt-20">
+    {{template "navbar"}}
+    <main>
+      <div id="users-site-container" class="flex flex-wrap">
+        <div class="w-full md:w-1/2 p-2">
+          <form
+            id="users-form"
+            hx-post="/content/users-form"
+            hx-target="#users-list"
+            hx-on::after-request="if(event.detail.successful) this.reset()"
+          >
+            <div class="flex flex-wrap justify-between items-center mb-1 mt-1">
+              <label>Name</label>
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Type here"
+                class="input input-bordered w-full max-w-xs"
+              />
+            </div>
+            <div class="flex flex-wrap justify-between items-center mb-1 mt-1">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                requireds
+                placeholder="name@domain"
+                class="input input-bordered w-full max-w-xs"
+              />
+            </div>
+            <div class="flex flex-wrap justify-center items-center">
+              <button
+                type="submit"
+                value="Submit"
+                class="btn btn-outline w-full max-w-xs"
+              >
+                Add User
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          id="users-list"
+          hx-get="/content/users"
+          hx-trigger="load"
+          hx-target="#users-list"
+          class="w-full p-2 md:w-1/2"
+        >
+          ...Loading tasks...
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+{{end}}

@@ -1,0 +1,11 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: task-manager-mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: task_manager
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d/

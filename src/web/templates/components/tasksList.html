@@ -1,0 +1,30 @@
+{{ define "tasksList" }}
+<div id="tasks-list" class="space-y-4">
+  {{range .}}
+  <ul>
+    <li key="{{.Id}}">
+      <div
+        class="card bg-base-100 w-full shadow-xl hover:bg-base-200"
+        hx-get="/content/tasks/{{.Id}}"
+        hx-target="#task-detail"
+        hx-trigger="click"
+      >
+        <div class="card-body items-center text-center">
+          <h2 class="card-title">{{.Title}}</h2>
+          <p class="truncate max-h-52 w-full">{{.Description}}</p>
+          <div class="card-actions">
+            <button
+              class="btn btn-outline btn-error"
+              hx-delete="/content/tasks/{{.Id}}"
+              hx-target="#tasks-list"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  {{end}}
+</div>
+{{end}}
