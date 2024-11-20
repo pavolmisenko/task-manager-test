@@ -8,9 +8,9 @@ Styling is done via [TaiwindCSS](https://tailwindui.com/) and [daisyUI](https://
 
 Make sure you have Node installed. See instalation guide [here](https://nodejs.org/en/download/package-manager)
 
-Make suer you have Golang installed. See instalation guide [here](https://go.dev/doc/install)
+Make sure you have Golang installed. See instalation guide [here](https://go.dev/doc/install)
 
-Run
+Install dependencies
 
 ```bash
 npm install
@@ -18,7 +18,22 @@ npm install
 
 # Run application
 
-Run
+Run DB
+
+```bash
+cd db
+docker-compose up
+```
+
+## Run Development server
+
+Install [air](https://pkg.go.dev/github.com/air-verse/air) for hot-reload on go server
+
+```bash
+go install github.com/air-verse/air@latest
+```
+
+Run air in root directory
 
 ```bash
 air
