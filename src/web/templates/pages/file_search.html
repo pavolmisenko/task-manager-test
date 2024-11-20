@@ -1,0 +1,15 @@
+{{define "file_search"}}
+<!DOCTYPE html>
+<html lang="en" data-theme="{{if .DarkMode}}dark{{else}}garden{{end}}">
+  <head>
+    {{template "metadata"}}
+    <script src="static/js/file_search.js" defer></script>
+  </head>
+  <body class="pt-20">
+    {{template "navbar" .}}
+    <main>
+      <file-search></file-search>
+    </main>
+  </body>
+</html>
+{{end}}

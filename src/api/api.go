@@ -51,12 +51,15 @@ func (api API) Run() {
 	// e.Use(middleware.Logger())
 
 	// Serve static files
-	e.Static("/static/", path.Join("src", "web", "styles", "static"))
+	e.Static("/static/css/", path.Join("src", "web", "static", "css"))
+	e.Static("/static/js/", path.Join("src", "web", "static", "js"))
+
 
 	// pages
 	e.GET("/", handlers.Root)
 	e.GET("/tasks", taskHandler.BaseHandler)
 	e.GET("/users", userHandler.BaseHandler)
+	e.GET("/search", handlers.FileSearch)
 
 	// dark mode
 	e.POST("/toggle-dark-mode", handlers.ToggleDarkMode)
