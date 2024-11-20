@@ -54,7 +54,6 @@ func (api API) Run() {
 	e.Static("/static/css/", path.Join("src", "web", "static", "css"))
 	e.Static("/static/js/", path.Join("src", "web", "static", "js"))
 
-
 	// pages
 	e.GET("/", handlers.Root)
 	e.GET("/tasks", taskHandler.BaseHandler)
