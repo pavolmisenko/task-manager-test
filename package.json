@@ -2,14 +2,20 @@
   "name": "task-manager",
   "version": "1.0.0",
   "type": "module",
+  "scripts": {
+    "build:ts": "tsc",
+    "build:js": "esbuild --format=esm --bundle --loader:.css=copy --outfile=lib/bundle.js src/custom-web-components/main.ts",
+    "build:css": "postcss -r \"./lib/*.js\"",
+    "build:static": "cp lib/* src/web/static/js/"
+  },
+  "dependencies": {
+    "lit": "^3.2.1"
+  },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.1",
-    "@rollup/plugin-node-resolve": "^15.3.0",
     "daisyui": "^4.12.13",
     "esbuild": "^0.24.0",
-    "lit": "^3.2.1",
-    "rollup": "^4.27.3",
-    "rollup-plugin-typescript2": "^0.36.0",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3"
   }
