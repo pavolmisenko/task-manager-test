@@ -1,14 +1,20 @@
-import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
-import typescript from "rollup-plugin-typescript2";
+//import typescript from "@rollup/plugin-typescript";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+//import postcss from "rollup-plugin-postcss";
 
 export default {
-  input: "src/lit-components/file_search.ts",
+  input: "dist/file_search.js",
   output: {
-    file: "src/web/static/js/file_search.js",
-    format: "iife", // Suitable for <script> tags
-    name: "MyComponentBundle", // Global variable name for your bundle
-    sourcemap: true,
+    file: "lib/bundle.js",
+    format: "iife",
   },
-  plugins: [resolve(), commonjs(), typescript({ tsconfig: "./tsconfig.json" })],
+  plugins: [nodeResolve()],
+  // plugins: [
+  //   typescript(),
+  //   postcss({
+  //     extract: true,
+  //     minimize: true,
+  //   }),
+  //   nodeResolve(),
+  // ],
 };

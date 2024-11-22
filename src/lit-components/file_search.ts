@@ -1,9 +1,20 @@
-import { LitElement, html } from "lit";
+import { LitElement, html, css } from "lit";
 import { customElement } from "lit/decorators.js";
 
 @customElement("file-search")
 class SearchFileComponent extends LitElement {
   searchLetters = "taxi";
+
+  static styles = css`
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    :host {
+      display: block;
+      padding: 1rem;
+    }
+  `;
 
   render() {
     return html`
